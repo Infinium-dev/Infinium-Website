@@ -20,89 +20,19 @@
   <link rel="stylesheet" href="assets/dropdown/css/style.css">
   <link rel="stylesheet" href="assets/socicon/css/styles.css">
   <link rel="stylesheet" href="assets/theme/css/style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js?v0.04"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.4.0/jquery.timeago.min.js?v0.04"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sparklines/2.1.2/jquery.sparkline.min.js?v0.04"></script>
-  <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js?v0.04"></script>
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css?v0.04" rel="stylesheet">
   <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
   
-  
-  
+ <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4SS74SECPB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4SS74SECPB');
+</script>
   
 </head>
-
-<script>
-    var node_rpc_url='https://node.infinium.space'
-    var network_data;
-    var network_data_update_interval=25000;
-
-    function getNetworkStatus()
-    {
-        $.ajax({
-            url: node_rpc_url + '/json_rpc',
-            method: "POST",
-            data: JSON.stringify({
-                jsonrpc:"2.0",
-                id: "0",
-                method:"get_status",
-                params: {
-                }
-            }),
-            dataType: 'json',
-            cache: 'false'
-        }).done(function(data, success){
-            //pulseLiveUpdate();
-            //network_data = data;
-            var cache_data = data;
-            var br;
-            $.ajax({
-                url: node_rpc_url + '/json_rpc',
-                method: "POST",
-                data: JSON.stringify({
-                    jsonrpc:"2.0",
-                    id: "0",
-                    method:"get_block_header",
-                    params: {
-                        "height_or_depth": cache_data.result.top_block_height
-                    }
-                }),
-                dataType: 'json',
-                cache: 'false'
-            }).done(function(data, success){
-                br = data;
-                update_network_stats_on_website(cache_data, br);
-            })
-
-			/*nodeStatus = success;
-            currentPage.update();
-			nodeInfo();*/
-        }).always(function () {
-			setTimeout(function() {
-				getNetworkStatus();
-			}, network_data_update_interval);
-        });
-    }
-
-    function update_network_stats_on_website(status_response, rb2)
-    {
-        document.getElementById("network_height").innerHTML = "#" + status_response.result.top_block_height;
-        document.getElementById("network_reward").innerHTML = (rb2.result.block_header.reward/1000000000000).toFixed(2) + " INF";
-        var nethash;
-        if(status_response.result.top_block_difficulty/90 < 1000000)
-        {
-            nethash = (status_response.result.top_block_difficulty/90000).toFixed(2) + " KH/s"
-        }
-        else
-        {
-            nethash = (status_response.result.top_block_difficulty/90000000).toFixed(2) + " MH/s"
-        }
-        document.getElementById("network_hashrate").innerHTML = nethash;
-    }
-
-    getNetworkStatus();
-</script>
-
 <body>
   
   <section class="menu menu2 cid-sfK6XLQuhN" once="menu" id="menu2-1">
@@ -111,12 +41,11 @@
         <div class="container">
             <div class="navbar-brand">
                 <span class="navbar-logo">
-                    <a class="text-white text-primary" href="https://infinium.space">
-                   
+                    <a href="index.html#top">
                         <img src="assets/images/logo3.png" alt="Infinium-8" style="height: 3rem;">
-              
+                    </a>
                 </span>
-                <span class="navbar-caption-wrap"><a class="navbar-caption text-black text-primary display-7 text-black" href="https://infinium.space">Infinium-8</span>
+                <span class="navbar-caption-wrap"><a class="navbar-caption text-black text-primary display-7" href="index.html#top">Infinium-8</a></span>
             </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <div class="hamburger">
@@ -151,7 +80,7 @@
                 <h1 class="mbr-section-title mbr-fonts-style mbr-white mb-3 display-1"><strong>Infinium - 8</strong></h1>
                 
                 <p class="mbr-text mbr-fonts-style mbr-white display-7">Infinite supply with infinite possibilities!</p>
-                <div class="mbr-section-btn mt-3"><a class="btn btn-warning display-7" href="download.html#contacts1-d">Download wallet</a>
+                <div class="mbr-section-btn mt-3"><a class="btn btn-warning display-7" href="download.html#top">Download wallet</a>
                     <a class="btn btn-warning-outline display-7" href="index.html#timeline3-3">Learn More</a></div>
             </div>
         </div>
@@ -379,7 +308,7 @@
                             <span class="mbr-iconfont mobi-mbri-delivery mobi-mbri"></span>
                         </div>
                         <h5 class="card-title mbr-fonts-style display-7"><strong>Blocks in the chain</strong></h5>
-                        <p id="network_height" class="card-text mbr-fonts-style display-7">#N/A</p>
+                        <p class="card-text mbr-fonts-style display-7">#2000000</p>
                     </div>
                 </div>
             </div>
@@ -390,7 +319,7 @@
                             <span class="mbr-iconfont mobi-mbri-cash mobi-mbri"></span>
                         </div>
                         <h5 class="card-title mbr-fonts-style display-7"><strong>Current Block Reward</strong></h5>
-                        <p id="network_reward" class="card-text mbr-fonts-style display-7">N/A INF</p>
+                        <p class="card-text mbr-fonts-style display-7">17 INF</p>
                     </div>
                 </div>
             </div>
@@ -401,7 +330,7 @@
                             <span class="mbr-iconfont mobi-mbri-growing-chart mobi-mbri"></span>
                         </div>
                         <h5 class="card-title mbr-fonts-style display-7"><strong>Current Network Hashrate</strong></h5>
-                        <p id="network_hashrate" class="card-text mbr-fonts-style display-7">N/A KH/s</p>
+                        <p class="card-text mbr-fonts-style display-7">900 KH/s</p>
                     </div>
                 </div>
             </div>
@@ -426,12 +355,21 @@
                     <a class="iconfont-wrapper bg-facebook m-2 " target="_blank" href="https://discord.gg/jRQZMr9u84">
                             <span class="socicon-discord socicon"></span>
                         </a>
-                        <a class="iconfont-wrapper bg-tiktok m-2" href="http://github.com/Infinium-dev" target="_blank">
+                        <a class="iconfont-wrapper bg-twitter m-2" href="http://github.com/Infinium-dev" target="_blank">
                             <span class="socicon-github socicon"></span>
                         </a>
-                        <a class="iconfont-wrapper bg-twitter m-2" href="https://t.me/Infinium8" target="_blank">
+                        <a class="iconfont-wrapper bg-instagram m-2" href="https://t.me/Infinium8" target="_blank">
                             <span class="socicon-telegram socicon"></span>
                         </a>
+                        
+                        
+                        
+                        
+                        
+                        <a class="iconfont-wrapper bg-tiktok m-2" href="https://mobiri.se" target="_blank">
+                            <span class="socicon-tiktok socicon"></span>
+                        </a>
+                        
                         
                 </div>
             </div>
@@ -454,11 +392,11 @@
                     
                     
                     
-                <li class="foot-menu-item mbr-fonts-style display-7"><a href="index.html#top" class="text-white text-primary">Home</a></li><li class="foot-menu-item mbr-fonts-style display-7">
+                <li class="foot-menu-item mbr-fonts-style display-7"><a href="index.html#top" class="text-primary">Home</a></li><li class="foot-menu-item mbr-fonts-style display-7">
                         <a class="text-white text-primary" href="download.html#contacts1-d">Download
                     </a></li><li class="foot-menu-item mbr-fonts-style display-7">
                         <a class="text-white text-primary" href="index.html#team2-2" target="_blank">Contact Us</a>
-                    </li><li class="foot-menu-item mbr-fonts-style display-7"><a class="text-white text-primary" href="devdocs.html">Developer Docs</li></ul>
+                    </li><li class="foot-menu-item mbr-fonts-style display-7"><a href="devdocs.html#top" class="text-primary">Developer Docs</a></li></ul>
             </div>
             <div class="row social-row">
                 <div class="social-list align-right pb-2">
@@ -483,7 +421,7 @@
             </div>
         </div>
     </div>
-</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/" style="flex: 1 1; height: 3rem; padding-left: 1rem; position:fixed; top: -200px"></a></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
+</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/u" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Web page was <a href="https://mobirise.site/g" style="color:#aaa;">built</a> with Mobirise</p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
   
   
 </body>
