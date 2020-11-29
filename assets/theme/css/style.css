@@ -220,6 +220,24 @@ section .mbr-background-video-preview {
   }
 }
 
+@media (max-width: 1200px){
+  #wp_img_soon{
+    visibility: hidden
+  }
+}
+
+@media (max-width: 991px) {
+  #wp_img_soon {
+    visibility: visible
+  }
+}
+
+@media (max-width: 768px) {
+  #wp_img_soon {
+    visibility: hidden
+  }
+}
+
 figure {
   margin-bottom: 0;
   overflow: hidden;

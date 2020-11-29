@@ -1811,10 +1811,47 @@ a {
   }
 }
 .cid-sfMFI2iX5v {
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   background-color: #ffffff;
 }
+.cid-sfMFI2iX5v .mbr-iconfont {
+  display: block;
+  font-size: 5rem;
+  color: #6592e6;
+  margin-bottom: 2rem;
+}
+
+.cid-sfMFI2iX5v .card-wrapper {
+  padding: 3rem;
+  background: #fafafa;
+  border-radius: 4px;
+}
+
+@media (max-width: 992px) {
+  .cid-sfMFI2iX5v .card-wrapper {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .cid-sfMFI2iX5v .card-wrapper {
+    padding: 3rem 1rem;
+  }
+}
+
+.cid-sfMFI2iX5v .img-wrapper {
+  text-align: center;
+}
+
+.cid-sfMFI2iX5v img {
+  margin: auto;
+  width: 140px;
+  padding-bottom: 2rem;
+}
+
+
+
 .cid-sfMFzqD06v {
   padding-top: 0rem;
   padding-bottom: 5rem;
