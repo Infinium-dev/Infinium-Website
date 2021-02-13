@@ -1335,6 +1335,14 @@ a {
 .cid-sfPRTjCIsV .bg-twitter:hover {
   background: #0c85d0;
 }
+.cid-sfPRTjCIsV .bg-btc {
+  background: #f7931a;
+  color: #ffffff;
+}
+
+.cid-sfPRTjCIsV .bg-btc:hover {
+  background: #d88218;
+}
 .cid-sfPRTjCIsV .bg-instagram {
   background: #f00075;
   color: #ffffff;
