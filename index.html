@@ -13,7 +13,7 @@
   <meta http-equiv="Expires" content="0" />
   
   
-  <title>Infinium-8 Cryptocurrency</title>
+  <title>Infinium Cryptocurrency</title>
   <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
   <link rel="stylesheet" href="assets/web/assets/mobirise-icons-bold/mobirise-icons-bold.css">
   <link rel="stylesheet" href="assets/tether/tether.min.css">
@@ -34,6 +34,7 @@
 
 <script src="status.js?3"></script>
 <script>
+    var srv=0;
     //Whitepaper button script
     window.onload = function(){
         if(web_status.wp_is_available==false){
@@ -47,8 +48,22 @@
     }
     function wp_click(){
         if(web_status.wp_is_available){
-            var win = window.open(web_status.wp_location, '_blank');
-            win.focus();
+            if(web_status.wp_is_ml){
+                if(srv==0){
+                    srv=1;
+                    setTimeout(function(){
+                        document.getElementById("wp_btn").innerHTML = 'Read Whitepaper&nbsp;<i class="fa fa-arrow-up" aria-hidden="true"></i><div class="dropdown"><div id="drop_m" class="dropdown-content"><p class="lang_p" onclick="open_wp(\'https://infinium.space/whitepaper.pdf\');">English</p><p class="lang_p" onclick="open_wp(\'https://infinium.space/whitepaper_ru.pdf\');">Russian</p><p class="lang_p" onclick="open_wp(\'https://infinium.space/whitepaper_cn.pdf\');">Chinese</p></div></div>';
+                        document.getElementById("drop_m").style.display="block";
+                    },20);
+                }else{
+                    srv=0;
+                    read_wp_back();
+                    document.getElementById("drop_m").style.display="none";
+                }
+            }else{
+                var win = window.open(web_status.wp_location, '_blank');
+                win.focus();
+            }
         }
         else
         {
@@ -56,9 +71,13 @@
             setTimeout(function(){read_wp_back()},2500);
         }
     }
+    function open_wp(url){
+        var win = window.open(url, '_blank');
+        win.focus();
+    }
     function read_wp_back()
     {
-        document.getElementById("wp_btn").innerText = "Read Whitepaper";
+        document.getElementById("wp_btn").innerHTML = 'Read Whitepaper&nbsp;<i class="fa fa-arrow-down" aria-hidden="true"></i><div class="dropdown"><div id="drop_m" class="dropdown-content"><p class="lang_p">English</p><p class="lang_p">Russian</p><p class="lang_p">Chinese</p></div></div>';
     }
 </script>
 
@@ -175,10 +194,10 @@ window.dataLayer = window.dataLayer || [];
                 <span class="navbar-logo">
                     <a class="text-white text-primary" href="https://infinium.space">
                    
-                        <img src="assets/images/logo3_new.png" alt="Infinium-8" style="height: 3rem;">
+                        <img src="assets/images/logo3_new.png" alt="Infinium" style="height: 3rem;">
               
                 </span>
-                <span class="navbar-caption-wrap"><a class="navbar-caption text-black text-primary display-7 text-black" href="https://infinium.space">Infinium-8</a></span>
+                <span class="navbar-caption-wrap"><a class="navbar-caption text-black text-primary display-7 text-black" href="https://infinium.space">Infinium</a></span>
             </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <div class="hamburger">
@@ -210,12 +229,20 @@ window.dataLayer = window.dataLayer || [];
     <div class="container">
         <div class="row justify-content-end">
             <div class="col-12 col-lg-7">
-                <h1 class="mbr-section-title mbr-fonts-style mbr-white mb-3 display-1"><strong>Infinium - 8</strong></h1>
+                <h1 class="mbr-section-title mbr-fonts-style mbr-white mb-3 display-1"><strong>Infinium</strong></h1>
                 
                 <p class="mbr-text mbr-fonts-style mbr-white display-7">Infinite supply with infinite possibilities!</p>
                 <div class="mbr-section-btn mt-3"><a class="btn btn-warning display-7" href="download.html#contacts1-d">Download wallet</a>
                     <a class="btn btn-warning-outline display-7" href="index.html#timeline3-3">Learn More</a>
-                    <a id="show_rd_wp"><a id="show_comming_soon_wp" style="position: absolute; visibility: hidden;"><img id="wp_img_soon" style="position: absolute; left: 410px; bottom: -105px; width: auto; height: 135px; opacity: 0.7;" src="assets/images/wp soon5.png" ></a><a id="wp_btn" class="btn btn-warning-outline display-7" onclick="wp_click();">Read Whitepaper</a></div>
+                    <a id="show_rd_wp"><a id="show_comming_soon_wp" style="position: absolute; visibility: hidden;"><img id="wp_img_soon" style="position: absolute; left: 410px; bottom: -105px; width: auto; height: 135px; opacity: 0.7;" src="assets/images/wp soon5.png" ></a><a id="wp_btn" class="btn btn-warning-outline display-7 dropdown-act" onclick="wp_click();">Read Whitepaper&nbsp;<i class="fa fa-arrow-down" aria-hidden="true"></i>
+                    <div class="dropdown">
+                        <div id="drop_m" class="dropdown-content">
+                        <p class="lang_p" onclick="open_wp('https://infinium.space/whitepaper.pdf');">English</p>
+                        <p class="lang_p" onclick="open_wp('https://infinium.space/whitepaper_ru.pdf');">Russian</p>
+                        <p class="lang_p" onclick="open_wp('https://infinium.space/whitepaper_cn.pdf');">Chinese</p>
+                    </div>
+                    </div>
+                    </a></div>
             </div>
         </div>
     </div>
@@ -269,7 +296,7 @@ window.dataLayer = window.dataLayer || [];
                         <h4 class="mbr-timeline-title mbr-fonts-style mb-0 display-5">
                             <strong>Hard times</strong></h4>
                         <p class="mbr-text mbr-fonts-style mt-3 mb-0 display-7">
-                            Many developers tried to get over infinium project, the first one was user called "<a href="https://github.com/Nimoria" class="text-primary" target="_blank">Nimoria</a>" (2015) on github has tried to resume development of infinium network with fix of old seed nodes and making pull request to original infinium repo, but with no sucess. Next one was <a href="https://github.com/campurro" class="text-primary" target="_blank">campurro</a>&nbsp;(2019) trying to work on infinium, he fixed compilation of original code in GCC 5 and was hosting seed nodes and mining pool a long time, but even he left the project. The next was helium2017 creating discord group for infinium-8 at begining of 2020 and hosting pool and seed node. Helium2017 was the last person hosting infinium node when the next development team came.<br></p>
+                            Many developers tried to get over infinium project, the first one was user called "<a href="https://github.com/Nimoria" class="text-primary" target="_blank">Nimoria</a>" (2015) on github has tried to resume development of infinium network with fix of old seed nodes and making pull request to original infinium repo, but with no sucess. Next one was <a href="https://github.com/campurro" class="text-primary" target="_blank">campurro</a>&nbsp;(2019) trying to work on infinium, he fixed compilation of original code in GCC 5 and was hosting seed nodes and mining pool a long time, but even he left the project. The next was helium2017 creating discord group for infinium at begining of 2020 and hosting pool and seed node. Helium2017 was the last person hosting infinium node when the next development team came.<br></p>
                     </div>
                 </div>
             </div>
@@ -419,10 +446,6 @@ window.dataLayer = window.dataLayer || [];
                                         <span class="mbr-iconfont mobi-mbri-letter mobi-mbri"></span>
                                     </a>
                                 </div>
-                                
-                                
-                                
-                                
                             </div>
                         </div>
                     </div>
@@ -452,10 +475,6 @@ window.dataLayer = window.dataLayer || [];
                                         <span class="mbr-iconfont mobi-mbri-letter mobi-mbri"></span>
                                     </a>
                                 </div>
-                                
-                                
-                                
-                                
                             </div>
                         </div>
                     </div>
@@ -518,6 +537,67 @@ window.dataLayer = window.dataLayer || [];
         </div>
     </div>
 </section>
+<section class="clients1 cid-srrsZD46UR" id="clients1-l">
+
+    <div class="images-container container-fluid">
+        <div class="mbr-section-head">
+            <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
+                <strong>Our Partners</strong>
+            </h3>
+
+            <p class="mbr-text mbr-fonts-style align-center mt-2 display-7">
+                you can track infinium stats there</p>
+        </div>
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-3 card">
+                <a href="https://www.coingecko.com/en/coins/infinium" target="_blank"><img
+                        src="assets/images/coingecko-144x42.png" alt=""></a>
+            </div>
+            <div class="col-md-3 card">
+                <a href="https://www.cryptunit.com/coin/INF" target="_blank"><img
+                        src="assets/images/cryptunit-240x48.png" alt=""></a>
+            </div>
+            <div class="col-md-3 card">
+                <a href="https://www.cryptocompare.com/coins/inf/overview/BTC" target="_blank"><img
+                        src="assets/images/cryptocompare-174x194.png" alt=""></a>
+            </div>
+            <div class="col-md-3 card">
+                <a href="https://coinpaprika.com/coin/inf-infinium/" target="_blank"><img
+                        src="assets/images/coinpaprika-151x35.png" alt=""></a>
+            </div>
+            <div class="col-md-3 card">
+                <a href="https://coinstats.app/ru/coins/infinium/" target="_blank"><img
+                        src="assets/images/coinstats-236x56.png" alt=""></a>
+            </div>
+
+
+
+        </div>
+    </div>
+</section>
+
+<section class="clients1 cid-srTZ6sHsBf" id="clients1-m">
+    <div class="images-container container-fluid">
+        <div class="mbr-section-head">
+            <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
+                <strong>Exchanges</strong><strong><br></strong>
+            </h3>
+
+            <p class="mbr-text mbr-fonts-style align-center mt-2 display-7">
+                you can buy or sell infinium on these exchanges</p>
+        </div>
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-3 card">
+                <a href="https://cratex.io/index.php?pair=INF/BTC" target="_blank"><img
+                        src="assets/images/cratex-1-240x72.png" height="40" width="260" alt=""></a>
+            </div>
+            <div class="col-md-3 card">
+                <a href="https://www.btcsquare.net/exchange/INF/BTC" target="_blank"><img
+                        src="assets/images/btcsquare-240x71.png" height="40" width="260" alt=""></a>
+            </div>
+        </div>
+    </div>
+</section>
 
 <section class="share3 cid-sfPRTjCIsV" id="share3-i">
     
@@ -545,7 +625,6 @@ window.dataLayer = window.dataLayer || [];
                             <span style="visibility: hidden;" class="socicon-bitbucket socicon"></span>
                             <a style="position: relative; right: 45px; bottom: 2px; font-size: 35px; color: #fff;" href="https://bitcointalk.org/index.php?topic=5302305.0" target="_blank">₿</a>
                          </a>
-                        
                 </div>
             </div>
         </div>
@@ -553,20 +632,10 @@ window.dataLayer = window.dataLayer || [];
 </section>
 
 <section class="footer3 cid-sfMgsWGZJv" once="footers" id="footer3-9">
-
-    
-
-    
-
     <div class="container">
         <div class="media-container-row align-center mbr-white">
             <div class="row row-links">
                 <ul class="foot-menu">
-                    
-                    
-                    
-                    
-                    
                 <li class="foot-menu-item mbr-fonts-style display-7"><a href="index.html#top" class="text-white text-primary">Home</a></li><li class="foot-menu-item mbr-fonts-style display-7">
                         <a class="text-white text-primary" href="download.html#contacts1-d">Download
                     </a></li><li class="foot-menu-item mbr-fonts-style display-7">
@@ -576,12 +645,6 @@ window.dataLayer = window.dataLayer || [];
             </div>
             <div class="row social-row">
                 <div class="social-list align-right pb-2">
-                    
-                    
-                    
-                    
-                    
-                    
                 <div class="soc-item">
                         <a href="https://discord.gg/jRQZMr9u84" target="_blank">
                             <span class="mbr-iconfont mbr-iconfont-social socicon-discord socicon"></span>

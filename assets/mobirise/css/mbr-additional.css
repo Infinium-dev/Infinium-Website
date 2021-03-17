@@ -2407,3 +2407,142 @@ a {
 .cid-sfMgsWGZJv .media-container-row .row-copirayt p {
   width: 100%;
 }
+
+.dropdown {
+  position: absolute;
+  display: inline-block;
+  top: 190px;
+  right: 260px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgba(204, 204, 204, 0.3);
+  min-width: 184px;
+  height: 110px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding-top: 12px;
+  z-index: 1;
+}
+
+@media (max-width: 1199px) {
+  .dropdown {
+    top: 257px;
+    left: 35px;
+  }
+}
+
+@media (max-width: 991px) {
+  .dropdown {
+    top: 175px;
+    left: 404px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dropdown {
+    top: 188px;
+    left: 404px;
+  }
+}
+
+@media (max-width: 767px) {
+  .dropdown {
+    top: calc(254px);
+    left: 34px;
+  }
+}
+
+@media (max-width: 598px) {
+  .dropdown {
+    top: 240px;
+    left: 34px;
+  }
+}
+
+@media (max-width: 450px) {
+  .dropdown {
+    top: 220px;
+    left: 34px;
+  }
+}
+
+@media (max-width: 371px) {
+  .dropdown {
+    top: 280px;
+    left: 34px;
+  }
+}
+
+@media (max-width: 339px) {
+  .dropdown {
+    top: 295px;
+    left: 34px;
+  }
+}
+
+@media (max-width: 213px) {
+  .dropdown {
+    top: 325px;
+    left: 34px;
+  }
+}
+
+.dropdown-act:hover .dropdown-content {
+  display: block;
+}
+
+.lang_p:hover {
+  color: #f5eda4;
+}
+
+.cid-srrsZD46UR {
+  padding-top: 1rem;
+  padding-bottom: 0rem;
+  background-color: #ffffff;
+}
+
+.cid-srrsZD46UR img {
+  width: 120px;
+  margin: auto;
+}
+
+.cid-srrsZD46UR .card {
+  transition: all 0.3s;
+  height: fit-content;
+  padding: 1rem 0;
+  opacity: 0.7;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 992px) {
+  .cid-srrsZD46UR .card {
+    max-width: 12.5%;
+  }
+}
+
+.cid-srTZ6sHsBf {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: #ffffff;
+}
+
+.cid-srTZ6sHsBf img {
+  width: 120px;
+  margin: auto;
+}
+
+.cid-srTZ6sHsBf .card {
+  transition: all 0.3s;
+  height: fit-content;
+  padding: 1rem 0;
+  opacity: 0.7;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 992px) {
+  .cid-srTZ6sHsBf .card {
+    max-width: 12.5%;
+  }
+}
