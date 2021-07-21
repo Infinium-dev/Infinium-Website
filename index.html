@@ -146,7 +146,7 @@ window.dataLayer = window.dataLayer || [];
         document.getElementById("network_height").innerHTML = "#" + status_response.result.top_block_height;
         document.getElementById("network_reward").innerHTML = (rb2.result.block_header.reward/1000000000000).toFixed(2) + " INF";
         var nethash, nethash2, nethash3;
-        if(status_response.result.top_block_difficulty/189 < 1000000)
+        if(status_response.result.top_block_difficulty/45 < 1000000)
         {
             nethash = (status_response.result.top_block_difficulty/189000).toFixed(2) + " KH/s"
         }
@@ -154,7 +154,7 @@ window.dataLayer = window.dataLayer || [];
         {
             nethash = (status_response.result.top_block_difficulty/189000000).toFixed(2) + " MH/s"
         }
-        if(rb2.result.block_header.second_difficulty/1878 < 1000){
+        if(rb2.result.block_header.second_difficulty/45 < 1000){
             nethash2 = (rb2.result.block_header.second_difficulty/1878).toFixed(2) + " H/s"
         }else if(rb2.result.block_header.second_difficulty/1878 < 1000000)
         {
@@ -164,7 +164,7 @@ window.dataLayer = window.dataLayer || [];
         {
             nethash2 = (rb2.result.block_header.second_difficulty/1878000000).toFixed(2) + " MH/s"
         }
-        if(rb2.result.block_header.third_difficulty/189 < 1000000)
+        if(rb2.result.block_header.third_difficulty/45 < 1000000)
         {
             nethash3 = (rb2.result.block_header.third_difficulty/189000).toFixed(2) + " KH/s"
         }
@@ -410,12 +410,29 @@ window.dataLayer = window.dataLayer || [];
                     </div>
                 </div>
             </div>
-            
-            
-            
-            
-            
-            
+            <div class="row timeline-element first-separline mb-5">
+                <div class="timeline-date col-12">
+                    <div class="timeline-date-wrapper">
+                        <p class="mbr-timeline-date display-7">21 July 2021</p>
+                    </div>
+                </div>
+                <span class="iconBackground"></span>
+                <div class="col-12 col-md-6">
+                    <div class="image-wrapper">
+                        <img src="assets/images/3.1.0.png" alt="" title="">
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="timeline-text-wrapper">
+                        <h4 class="mbr-timeline-title mbr-fonts-style mb-0 display-5">
+                            <strong>Infinium 3.1.0</strong>
+                        </h4>
+                        <p class="mbr-text mbr-fonts-style mt-3 mb-0 display-7">
+                            Hardfork which removes cn/2 mining algo and replaces it with cn/zls, also developer fee was removed and block time decreased to about ~15 seconds to speedup the chain</p>
+                        <img src="assets/images/3.1.0_chart.png" alt="" title="">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -568,6 +585,10 @@ window.dataLayer = window.dataLayer || [];
             <div class="col-md-3 card">
                 <a href="https://coinstats.app/ru/coins/infinium/" target="_blank"><img
                         src="assets/images/coinstats-236x56.png" alt=""></a>
+            </div>
+            <div class="col-md-3 card">
+                <a href="https://miningpoolstats.stream/infinium8-cn" target="_blank"><img
+                        src="assets/images/mms.png" alt=""></a>
             </div>
 
 
